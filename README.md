@@ -1,8 +1,8 @@
 WHY NOT A GIF HERE? TO SET THE MODE.
 
-# Island name
+# Southern Isles
 
-Some text about your lovely island
+Welcome to the lovely home island of Hans. The arctic isle located far far north. Enjoy the lively
 
 # Hotel name
 
