@@ -1,6 +1,6 @@
 <?php
 
-$guest = "";
+$booking = "";
 
 
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_type"])) {
@@ -9,7 +9,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
     $room = trim($_POST["room_type"]);
     $arrivalDate = trim($_POST["arrival"]);
     $departureDate = trim($_POST["departure"]);
-    $guest = [
+    $booking = [
         "name" => $name,
         "voucher" => $voucher,
         "arrival_date" => $arrivalDate,
@@ -17,10 +17,10 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         "room_type" => $room,
     ];
 
-    $guest = json_encode($guest); // make array > json
+    $booking = json_encode($booking); // make array > json
 
 }
 
-// echo "<pre>";
-print_r($guest);
-// echo "</pre>";
+echo "<pre>";
+print_r($booking);
+echo "</pre>";
