@@ -1,0 +1,23 @@
+.calendar-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.calendar-container {
+  width: 30%;
+}
+
+table.calendar {
+  width: 100%;
+}
+
+table.calendar.eco {
+  background-color: hotpink;
+}
+table.calendar.std {
+  background-color: orangered;
+}
+table.calendar.lux {
+  background-color: #8c8c8c;
+}
