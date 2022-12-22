@@ -39,3 +39,14 @@ function checkAvailability(
     // print_r($result);
     // echo "</pre>";
 }
+
+function hotelInfo($database)
+{
+    $stmt = connect($database)->query("SELECT * FROM hotel_info;");
+
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // $result = json_encode($result);
+
+    return $result;
+}

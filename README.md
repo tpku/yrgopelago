@@ -4,7 +4,7 @@ WHY NOT A GIF HERE? TO SET THE MODE.
 
 Welcome to the lovely home island of Hans. The arctic isle located far far north. Enjoy the lively
 
-# Hotel name
+# Hans´s Haven
 
 Why not add some info about the hotel of your dreams?
 
