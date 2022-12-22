@@ -26,8 +26,10 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
     // // print_r($booking);
     // echo "</pre>";
 
+    /* Display selected date for form */
     $isAvailable = checkAvailability($arrivalDate, $departureDate, $room, $database);
 
+    /* If guest selection is accepted and available do: */
     if (count($isAvailable) === 0) {
         /** Insert Into DATABASE  */
         $insertQuery =
@@ -46,7 +48,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         $events = [
             "start" => $arrivalDate,
             "end" => $departureDate,
-            "summary" => $name,
+            "name" => $name,
             "mask" => true,
             "classes" => ["booking", $arrivalDate, $departureDate], /* MODIFY CLASSES IF NEEDED */
         ];
@@ -56,14 +58,18 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         $tempArray = json_decode($targetJson, true);
         /** Push the new booking data into existing json (temporary array) */
         array_push($tempArray, $events);
+
         print_r($tempArray);
+        /** Print temp array. REMOVE */
         echo '<hr>';
+
         /** Convert back to JSON */
         $jsonData = json_encode($tempArray);
         /** Select and Put into JSON target file */
         file_put_contents(__DIR__ . "/bookings.json", $jsonData);
 
         print($jsonData);
+        /** Print encoded array as JSON . REMOVE */
 
 
         // Print if reservation was available and successful 
