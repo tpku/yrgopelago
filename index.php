@@ -75,14 +75,6 @@ include __DIR__ . "/form.php";
 
 // }
 
-// print_r(checkAvailability("2023-01-01", "2023-01-01", 2, 3, "testRoom"));
-
-
-
-
-// if (dateExist($arrivalDate, $testData["arrival_date"])) {
-//     echo "Tjena";
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

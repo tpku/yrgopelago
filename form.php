@@ -2,6 +2,7 @@
 include __DIR__ . "/functions/functions.php";
 
 $booking = "";
+$events = array();
 
 
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_type"])) {
@@ -18,31 +19,62 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         "room_type" => $room,
     ];
 
-    $booking = json_encode($booking); // make array > json
+    // $booking = json_encode($booking); // make array > json
 
-    echo "<pre>";
-    var_dump(checkAvailability($arrivalDate, $departureDate, $room, $database));
-    // print_r($booking);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r(checkAvailability($arrivalDate, $departureDate, $room, $database));
+    // // print_r($booking);
+    // echo "</pre>";
 
     $isAvailable = checkAvailability($arrivalDate, $departureDate, $room, $database);
 
     if (count($isAvailable) === 0) {
+        /** Insert Into DATABASE  */
+        $insertQuery =
+            "INSERT INTO bookings (name, voucher, arrival_date, departure_date, room_type) VALUES (:name, :voucher, :arrival_date, :departure_date, :room_type)";
 
-        // $insertQuery = "INSERT INTO bookings (name, voucher, arrival_date, departure_date, room_type) VALUES (:name, :voucher, :arrival_date, :departure_date, :room_type)";
+        $stmt = connect($database)->prepare($insertQuery);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':voucher', $voucher, PDO::PARAM_STR);
+        $stmt->bindParam(':arrival_date', $arrivalDate, PDO::PARAM_STR);
+        $stmt->bindParam(':departure_date', $departureDate, PDO::PARAM_STR);
+        $stmt->bindParam(':room_type', $room, PDO::PARAM_INT);
 
-        // $stmt = connect($database)->prepare($insertQuery);
-        // $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-        // $stmt->bindParam(':voucher', $voucher, PDO::PARAM_STR);
-        // $stmt->bindParam(':arrival_date', $arrivalDate, PDO::PARAM_STR);
-        // $stmt->bindParam(':departure_date', $departureDate, PDO::PARAM_STR);
-        // $stmt->bindParam(':room_type', $room, PDO::PARAM_INT);
+        $stmt->execute();
 
-        // $stmt->execute();
+        // Create array to use calendar function addEvents
+        $events = [
+            "start" => $arrivalDate,
+            "end" => $departureDate,
+            "summary" => $name,
+            "mask" => true,
+            "classes" => ["booking", $arrivalDate, $departureDate], /* MODIFY CLASSES IF NEEDED */
+        ];
+        /** Select and Get JSON target file */
+        $targetJson = file_get_contents(__DIR__ . "/bookings.json");
+        /** Convert into array to use array_push with new data */
+        $tempArray = json_decode($targetJson, true);
+        /** Push the new booking data into existing json (temporary array) */
+        array_push($tempArray, $events);
+        print_r($tempArray);
+        echo '<hr>';
+        /** Convert back to JSON */
+        $jsonData = json_encode($tempArray);
+        /** Select and Put into JSON target file */
+        file_put_contents(__DIR__ . "/bookings.json", $jsonData);
+
+        print($jsonData);
 
 
+        // Print if reservation was available and successful 
         echo "GOOD STUFF! YIHA";
+
+        // Test print $events and $bookingToJson
+        echo "<pre>";
+        print_r($events);
+        // print_r($bookingToJson);
+        echo "</pre>";
     } else {
         echo "TRY AGAIN!";
-    }
+    };
 }
