@@ -5,6 +5,7 @@ main {
 }
 
 .calendar-wrapper {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
