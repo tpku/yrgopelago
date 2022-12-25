@@ -1,13 +1,34 @@
 <?php
+
+declare(strict_types=1);
+session_start();
 include __DIR__ . "/functions/functions.php";
 
 $booking = "";
-$events = array();
+$bookings = array();
+
+if (isset($_SESSION["error"], $_SESSION["verified"])) {
+    $printError = $_SESSION["error"];
+    $printVerified = $_SESSION["verified"];
+    echo "<pre>";
+    print_r($printError);
+    echo "</pre>";
+}
 
 
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_type"])) {
+    if (isValidUuid($_POST["voucher"]) === true) {
+        $voucher = trim($_POST["voucher"]);
+        $printVerified = "Yes sir! Entered uuid is valid.";
+        // echo "Yes sir! Entered uuid is valid.";
+        echo "<br>";
+    } else {
+        $voucher = trim($_POST["voucher"]);
+        $printError = "Sry bro! Not a valid uuid!";
+        // echo "Sry bro! Not a valid uuid!";
+        echo "<br>";
+    }
     $name = trim($_POST["name"]);
-    $voucher = trim($_POST["voucher"]);
     $room = trim($_POST["room_type"]);
     $arrivalDate = trim($_POST["arrival"]);
     $departureDate = trim($_POST["departure"]);
@@ -29,7 +50,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
     /* Display selected date for form */
     $isAvailable = checkAvailability($arrivalDate, $departureDate, $room, $database);
 
-    /* If guest selection is accepted and available do: */
+    /* If guest selection is accepted and available DO */
     if (count($isAvailable) === 0) {
         /** Insert Into DATABASE  */
         $insertQuery =
@@ -45,7 +66,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         $stmt->execute();
 
         // Create array to use calendar function addEvents
-        $events = [
+        $bookings = [
             "start" => $arrivalDate,
             "end" => $departureDate,
             "name" => $name,
@@ -57,7 +78,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         /** Convert into array to use array_push with new data */
         $tempArray = json_decode($targetJson, true);
         /** Push the new booking data into existing json (temporary array) */
-        array_push($tempArray, $events);
+        array_push($tempArray, $bookings);
 
         print_r($tempArray);
         /** Print temp array. REMOVE */
@@ -75,12 +96,13 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         // Print if reservation was available and successful 
         echo "GOOD STUFF! YIHA";
 
-        // Test print $events and $bookingToJson
+        // Test print $bookings and $bookingToJson
         echo "<pre>";
-        print_r($events);
+        print_r($bookings);
         // print_r($bookingToJson);
         echo "</pre>";
     } else {
-        echo "TRY AGAIN!";
+        $errorMsg = "Your selected room and dates are not available. Try another date or room.";
+        print_r($errorMsg);
     };
 }

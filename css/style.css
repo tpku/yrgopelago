@@ -5,6 +5,7 @@ main {
 }
 
 .calendar-wrapper {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -26,4 +27,13 @@ table.calendar.std {
 }
 table.calendar.lux {
   background-color: #8c8c8c;
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  gap: 1rem;
 }
