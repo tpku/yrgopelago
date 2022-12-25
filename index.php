@@ -91,6 +91,12 @@ include __DIR__ . "/form.php";
 
             <input class="submit" type="submit" value="Send data">
         </form>
+        <p>
+            <?php
+            echo $printError;
+            echo $printVerified;
+            ?>
+        </p>
 
     </main>
     <footer>

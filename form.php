@@ -6,18 +6,26 @@ include __DIR__ . "/functions/functions.php";
 
 $booking = "";
 $bookings = array();
-$_SESSION["error"] = "";
-$errorMsg = $_SESSION["error"];
+
+if (isset($_SESSION["error"], $_SESSION["verified"])) {
+    $printError = $_SESSION["error"];
+    $printVerified = $_SESSION["verified"];
+    echo "<pre>";
+    print_r($printError);
+    echo "</pre>";
+}
 
 
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_type"])) {
     if (isValidUuid($_POST["voucher"]) === true) {
         $voucher = trim($_POST["voucher"]);
-        echo "Yes sir! Entered uuid is valid.";
+        $printVerified = "Yes sir! Entered uuid is valid.";
+        // echo "Yes sir! Entered uuid is valid.";
         echo "<br>";
     } else {
         $voucher = trim($_POST["voucher"]);
-        echo "Sry bro! Not a valid uuid!";
+        $printError = "Sry bro! Not a valid uuid!";
+        // echo "Sry bro! Not a valid uuid!";
         echo "<br>";
     }
     $name = trim($_POST["name"]);
