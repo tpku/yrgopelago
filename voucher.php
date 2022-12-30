@@ -5,13 +5,10 @@ declare(strict_types=1);
 require_once __DIR__ . "/vendor/autoload.php";
 require_once __DIR__ . "/hotelFunctions.php";
 
-// Temporary hard coded variables to test function
-// $transferCode = "c8872eed-46b4-48f0-8307-9c1c26ce49c0";
-// $totalCost = 5;
 
-// Not valid
+/* Temporary test data. TransferCode is valid if totalCost is <= 20. Not valid if > 20 */
 // $transferCode = "fa06e0b0-1751-43de-9b18-25c10df72e30";
-// $totalCost = 20;
+// $totalCost = 11;
 // print_r(isValidUuid($transferCode));
 
 use GuzzleHttp\Client;
@@ -35,13 +32,16 @@ function validateTransferCode(string $transferCode, int $totalCost)
     if ($response->hasHeader('Content-Length')) {
         $transfer_code = json_decode($response->getBody()->getContents());
         // echo "<pre>";
-        var_dump($transfer_code);
+        // print_r(json_encode($transfer_code));
         // print_r($transfer_code);
         // echo "</pre>";
+
+        if (isset($transfer_code->transferCode)) {
+            /* Valid Transfer Code */
+            return true;
+        } elseif (isset($transfer_code->error)) {
+            /* Invalid Transfer Code */
+            return false;
+        }
     }
 }
-
-// Test Print function
-// validateTransferCode($transferCode, $totalCost);
-
-// print_r(isValidUuid($isVoucherValid));
