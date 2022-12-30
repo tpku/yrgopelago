@@ -25,8 +25,6 @@ include __DIR__ . "/form.php";
 //     var_dump($transfer_code);
 // }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,10 +43,10 @@ include __DIR__ . "/form.php";
     <header>
         <nav>
             <div class="info">
-                <?php foreach (hotelInfo($database) as $test) : ?>
-                    <p><?= $test["island"]; ?></p>
-                    <p><?= $test["name"]; ?></p>
-                    <p><?= $test["stars"]; ?></p>
+                <?php foreach (hotelInfo($database) as $hotel) : ?>
+                    <p><?= $hotel["island"]; ?></p>
+                    <p><?= $hotel["name"]; ?></p>
+                    <p><?= $hotel["stars"]; ?></p>
                 <?php endforeach; ?>
             </div>
             <ul>

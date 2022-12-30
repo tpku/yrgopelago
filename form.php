@@ -9,13 +9,15 @@ include __DIR__ . "/roomPrice.php";
 
 unset($errors);
 
-$booking = "";
 $bookings = array();
 $errors = [];
 $msgs = [];
 
-/* Declare hotelName from DB hotel_info */
+/* Declare hotel info from DB > hotel_info */
 $hotelName = hotelInfo($database)[0]["name"];
+$hotelIsland = hotelInfo($database)[0]["island"];
+$hotelStars = hotelInfo($database)[0]["stars"];
+
 /* Check if rooms are vacant Function inside "/calendar.php" */
 notVacant($database, $calendar1, $calendar2, $calendar3);
 
@@ -74,19 +76,6 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         $voucher = trim($_POST["voucher"]);
         $errors[] = "Payment is not a valid uuid!";
     }
-    // $booking = [
-    //     "name" => $name,
-    //     "voucher" => $voucher,
-    //     "arrival_date" => $arrivalDate,
-    //     "departure_date" => $departureDate,
-    //     "room_id" => $room,
-    // ];
-
-    // $booking = json_encode($booking); // make array > json
-    // echo "<pre>";
-    // // print_r($booking);
-    // echo "</pre>";
-
 
     /* If errors is empty and arrival < departure */
     if (!$errors && $checkDate === true) {
@@ -115,12 +104,23 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             $roomName = checkRoomId($room);
 
             /* Create array to use calendar function addEvents */
+            // $bookings = [
+            //     "start" => $arrivalDate,
+            //     "end" => $departureDate,
+            //     "summary" => "reservation by " . $name,
+            //     "mask" => true,
+            //     "classes" => [$room, $roomName], /* MODIFY CLASSES IF NEEDED */
+            // ];
+
             $bookings = [
-                "start" => $arrivalDate,
-                "end" => $departureDate,
-                "summary" => "reservation by " . $name,
-                "mask" => true,
-                "classes" => [$room, $roomName], /* MODIFY CLASSES IF NEEDED */
+                "island" => $hotelIsland,
+                "hotel" => $hotelName,
+                "arrival_date" => $arrivalDate,
+                "departure_date" => $departureDate,
+                "total_cost" => $totalCost,
+                "stars" => $hotelStars,
+                "features" => ["toBeAdded"],
+                "additional_info" => "Thank you for choosing " . $hotelIsland . ".",
             ];
 
 
