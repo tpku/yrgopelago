@@ -37,56 +37,21 @@ form {
   max-width: 200px;
   gap: 1rem;
 }
+
 /* .calendar tbody tr td.mask-start,
 .calendar tbody tr td.mask,
 .calendar tbody tr td.mask-end {
-  background: #c23b22;
+  background: #92746f;
 } */
 
 .mask-start,
-/* .mask-end, */
 .mask {
   color: rgb(39, 39, 39);
   background-color: #ed4141;
 }
 
-/* .calendar .cal-weekview-event.mask-start,
-.calendar .cal-weekview-event.mask,
-.calendar .cal-weekview-event.mask-end {
-  background: #c23b22;
-  margin-bottom: 3px;
-  padding: 5px;
-} */
-
 .cal-event-box {
   color: black;
   background-color: red;
   display: none;
-}
-
-table.calendar.std .mask-start.eco,
-table.calendar.lux .mask-start.eco,
-table.calendar.std .mask.eco,
-table.calendar.lux .mask.eco,
-table.calendar.std .mask-end.eco,
-table.calendar.lux .mask-end.eco {
-  background-color: #979393;
-}
-
-/* table.calendar.eco .mask-start.std,
-table.calendar.lux .mask-start.std,
-table.calendar.eco .mask.std,
-table.calendar.lux .mask.std, */
-table.calendar.eco .mask-end.std,
-table.calendar.lux .mask-end.std {
-  background-color: #979393;
-}
-
-/* table.calendar.eco .mask-start.lux,
-table.calendar.std .mask-start.lux,
-table.calendar.eco .mask.lux,
-table.calendar.std .mask.lux, */
-table.calendar.eco .mask-end.lux,
-table.calendar.std .mask-end.lux {
-  background-color: #979393;
 }

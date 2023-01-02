@@ -19,7 +19,8 @@ $hotelIsland = hotelInfo($database)[0]["island"];
 $hotelStars = hotelInfo($database)[0]["stars"];
 
 /* Check if rooms are vacant Function inside "/calendar.php" */
-notVacant($database, $calendar1, $calendar2, $calendar3);
+// notVacant($database, $calendar1, $calendar2, $calendar3);
+notVacant($database, $calendars);
 
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_id"])) {
 
@@ -55,7 +56,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
     /* ---- Room ID ---- */
     $room = trim($_POST["room_id"]);
 
-    /* Fetch room price from db checking room nr. Calculating price * nights */
+    /* ---- Fetch Room Price ---- from db checking room nr & calculating price * nights */
     /* Function accepts: 1 database, 2 room id, 3 arrival date, 4 departure date */
     $totalCost = calcTotalCost($database, $room, $arrivalDate, $departureDate);
 
@@ -120,7 +121,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
                 "total_cost" => $totalCost,
                 "stars" => $hotelStars,
                 "features" => ["toBeAdded"],
-                "additional_info" => "Thank you for choosing " . $hotelIsland . ".",
+                "additional_info" => ["Thank you for choosing " . $hotelIsland . "."],
             ];
 
 
@@ -131,10 +132,9 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             /* Push the new booking data into existing json (temporary array) */
             array_push($tempArray, $bookings);
 
-            print_r($tempArray);
-            /* Print temp array. REMOVE */
+            // print_r($tempArray); // REMOVE
+            $successfulBooking = $tempArray;
             echo '<hr>';
-
 
             /* Convert back to JSON */
             $jsonData = json_encode($tempArray);
@@ -142,18 +142,17 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             file_put_contents(__DIR__ . "/bookings.json", $jsonData);
 
             /* Print encoded array as JSON . REMOVE */
-            print($jsonData);
+            // print($jsonData);
 
-            $msgs[] = "Thank you for your payment.";
-            $msgs[] = "Your booking has been received. Welcome to " . $hotelName . "!";
+            $msgs[] = "Payment approved, your reservation has been received. Welcome to " . $hotelName . "!";
             /* Clear $errors if booking was successful and payment approved */
             unset($errors);
 
 
             /* Test print $bookings and $bookingToJson */
             echo "<pre>";
-            print_r($bookings);
-            print_r($_SESSION);
+            // print_r($bookings);
+            // print_r($_SESSION);
             /* print_r($bookingToJson); */
             echo "</pre>";
         } else {
