@@ -5,7 +5,6 @@ declare(strict_types=1);
 require_once __DIR__ . "/vendor/autoload.php";
 require_once __DIR__ . "/hotelFunctions.php";
 
-
 /* Temporary test data. TransferCode is valid if totalCost is <= 20. Not valid if > 20 */
 // $transferCode = "fa06e0b0-1751-43de-9b18-25c10df72e30";
 // $totalCost = 11;

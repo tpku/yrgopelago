@@ -5,6 +5,7 @@ session_start();
 include __DIR__ . "/functions/functions.php";
 include __DIR__ . "/voucher.php";
 include __DIR__ . "/roomPrice.php";
+include __DIR__ . "/featurePrice.php";
 
 
 unset($errors);
@@ -12,6 +13,7 @@ unset($errors);
 $bookings = array();
 $errors = [];
 $msgs = [];
+$featurePrices = [];
 
 /* Declare hotel info from DB > hotel_info */
 $hotelName = hotelInfo($database)[0]["name"];
@@ -22,7 +24,9 @@ $hotelStars = hotelInfo($database)[0]["stars"];
 // notVacant($database, $calendar1, $calendar2, $calendar3);
 notVacant($database, $calendars);
 
+
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_id"])) {
+    // if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_id"], $_POST["feature-1"], $_POST["feature-2"], $_POST["feature-3"])) {
 
     /* ---- Name ---- */
     if (!empty($_POST["name"])) {
@@ -56,9 +60,34 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
     /* ---- Room ID ---- */
     $room = trim($_POST["room_id"]);
 
+    /* Declare & add feature IDs to array if set */
+    if (isset($_POST["feature-1"])) {
+        $featureSelected[] = $_POST["feature-1"];
+    }
+    if (isset($_POST["feature-2"])) {
+        $featureSelected[] = $_POST["feature-2"];
+    }
+    if (isset($_POST["feature-3"])) {
+        $featureSelected[] = $_POST["feature-3"];
+    }
+
+    /* Fetch price and add price to array */
+    foreach ($featureSelected as $feature) {
+        $featurePrices[] = getFeaturePrice($database, $feature);
+    }
+
+    /* Calculate total cost for features */
+    $featureCost = 0;
+    foreach ($featurePrices as $i) {
+        $featureCost += $i;
+    }
+
     /* ---- Fetch Room Price ---- from db checking room nr & calculating price * nights */
     /* Function accepts: 1 database, 2 room id, 3 arrival date, 4 departure date */
-    $totalCost = calcTotalCost($database, $room, $arrivalDate, $departureDate);
+    $roomCost = calcTotalCost($database, $room, $arrivalDate, $departureDate);
+
+    /* Calculate Total Cost */
+    $totalCost = $roomCost + $featureCost;
 
     /* ---- Voucher (Uuid / Transfer code) ---- */
     if (isValidUuid($_POST["voucher"]) === true) {
@@ -85,7 +114,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
         /* If room is vacant and payment is approved */
         if (count($isAvailable) === 0 && $paymentApproved === true) {
 
-            /* Insert Into DATABASE  */
+            /* Insert Into DATABASE: bookings table */
             $insertQuery =
                 "INSERT INTO bookings (name, voucher, arrival_date, departure_date, room_id, total_cost) VALUES (:name, :voucher, :arrival_date, :departure_date, :room_id, :total_cost)";
 
@@ -104,15 +133,25 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             /* Declare function result as $roomName */
             $roomName = checkRoomId($room);
 
-            /* Create array to use calendar function addEvents */
-            // $bookings = [
-            //     "start" => $arrivalDate,
-            //     "end" => $departureDate,
-            //     "summary" => "reservation by " . $name,
-            //     "mask" => true,
-            //     "classes" => [$room, $roomName], /* MODIFY CLASSES IF NEEDED */
-            // ];
+            /* Fetch & insert into DATABASE: booking_room table */
+            $bookingRoomQuery =
+                "INSERT INTO booking_room (booking_id, room_id)
+                SELECT id, room_id FROM bookings ORDER BY id DESC LIMIT 1;";
 
+            $stmt = connect($database)->prepare($bookingRoomQuery);
+            $stmt->execute();
+
+            // ---- | FIX | ---- //
+            /* Fetch & insert into DATABASE: booking_feature table */
+            // $bookingFeatureQuery =
+            //     "INSERT INTO booking_feature (booking_id, feature_id)
+            //     SELECT id, :feature_id FROM bookings ORDER BY id DESC LIMIT 1;";
+
+            // $stmt = connect($database)->prepare($bookingFeatureQuery);
+            // $stmt->bindParam(':feature_id', $featureId, PDO::PARAM_INT);
+            // $stmt->execute();
+
+            /* Declare Receipt Array*/
             $bookings = [
                 "island" => $hotelIsland,
                 "hotel" => $hotelName,

@@ -51,3 +51,11 @@ function checkRoomId(int $roomId): string
     }
     return $roomName;
 }
+
+function checkRoomPage($script, $id)
+{
+    if ($script === $id) {
+        $room = 1;
+        echo $room;
+    }
+};

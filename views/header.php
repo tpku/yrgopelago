@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/rooms.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -16,15 +18,15 @@
         <nav>
             <div class="info">
                 <?php foreach (hotelInfo($database) as $hotel) : ?>
-                    <p><?= $hotel["island"]; ?></p>
+                    <a href="/index.php"><?= $hotel["island"]; ?></a>
                     <p><?= $hotel["name"]; ?></p>
                     <p><?= $hotel["stars"]; ?></p>
                 <?php endforeach; ?>
             </div>
             <ul>
-                <li><a href="">ABOUT</a></li>
-                <li><a href="">ROOMS</a></li>
-                <li><a href="">FEATURES</a></li>
+                <li><a href="/about.php">ABOUT</a></li>
+                <li><a href="/rooms.php">ROOMS</a></li>
+                <li><a href="/features.php">FEATURES</a></li>
             </ul>
         </nav>
     </header>
