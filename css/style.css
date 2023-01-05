@@ -55,3 +55,8 @@ form {
   background-color: red;
   display: none;
 }
+
+.radio-selection {
+  display: flex;
+  justify-content: space-between;
+}

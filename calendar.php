@@ -17,11 +17,33 @@ $calendar2->useMondayStartingDate();
 $calendar3 = new Calendar();
 $calendar3->useMondayStartingDate();
 
+
 $calendars = [
     ["variable" => $calendar1, "number" => 1],
     ["variable" => $calendar2, "number" => 2],
     ["variable" => $calendar3, "number" => 3],
 ];
+
+/* Check if room is vacant, add visual styling if not */
+/* Fetch DB as PHP-value (arrays) */
+function notVacant($database, array $calendars = null)
+{
+    $stmt = connect($database)->query(
+        "SELECT bookings.arrival_date, bookings.departure_date, bookings.room_id, rooms.name, rooms.price, rooms.type FROM bookings INNER JOIN rooms ON rooms.id = bookings.room_id;"
+    );
+
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($result as $event) {
+        foreach ($calendars as $calendar) {
+            if ($event["room_id"] === $calendar["number"]) {
+                $calendar["variable"]->addEvent($event["arrival_date"], $event["departure_date"], 0, 1, [$event["price"], $event["type"]]);
+            }
+        }
+    }
+}
+
 
 /* Check if room is vacant, add visual styling if not */
 /* Fetch DB as PHP-value (arrays) */
@@ -54,29 +76,6 @@ $calendars = [
 //     }
 // }
 
-/* Check if room is vacant, add visual styling if not */
-/* Fetch DB as PHP-value (arrays) */
-function notVacant($database, array $calendars = null)
-{
-    $stmt = connect($database)->query(
-        "SELECT bookings.arrival_date, bookings.departure_date, bookings.room_id, rooms.name, rooms.price, rooms.type FROM bookings INNER JOIN rooms ON rooms.id = bookings.room_id;"
-    );
-
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if (!empty($result)) {
-        $validateMask = true;
-    }
-
-    foreach ($result as $event) {
-        foreach ($calendars as $calendar) {
-            if ($event["room_id"] === $calendar["number"]) {
-                $calendar["variable"]->addEvent($event["arrival_date"], $event["departure_date"], $event["name"], $validateMask, [$event["price"], $event["type"]]);
-            }
-        }
-    }
-}
-
 
 /* Fetch JSON-string from /bookings.json and convert to PHP-value (arrays) */
 /* Check if room is vacant and add visual styling */
@@ -99,6 +98,3 @@ function notVacant($database, array $calendars = null)
 //         $calendar3->addEvent($event["start"], $event["end"], $event["summary"], $event["mask"], $event["classes"][1]);
 //     }
 // }
-
-/* Example use for addEvent */
-// $calendar->addEvent("arrival_date", "departure_date", "summary", mask=true ? false, "lux");
