@@ -21,12 +21,10 @@ $hotelIsland = hotelInfo($database)[0]["island"];
 $hotelStars = hotelInfo($database)[0]["stars"];
 
 /* Check if rooms are vacant Function inside "/calendar.php" */
-// notVacant($database, $calendar1, $calendar2, $calendar3);
 notVacant($database, $calendars);
 
 
 if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_id"])) {
-    // if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departure"], $_POST["room_id"], $_POST["feature-1"], $_POST["feature-2"], $_POST["feature-3"])) {
 
     /* ---- Name ---- */
     if (!empty($_POST["name"])) {
@@ -88,6 +86,11 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
 
     /* Calculate Total Cost */
     $totalCost = $roomCost + $featureCost;
+
+    /* Discount */
+    if ($totalCost >= 35) {
+        $totalCost = $totalCost - 5;
+    }
 
     /* ---- Voucher (Uuid / Transfer code) ---- */
     if (isValidUuid($_POST["voucher"]) === true) {
@@ -171,18 +174,14 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             /* Push the new booking data into existing json (temporary array) */
             array_push($tempArray, $bookings);
 
-            // print_r($tempArray); // REMOVE
-            $successfulBooking = $tempArray;
-            echo '<hr>';
+            $successfulBooking = json_encode(end($tempArray));
 
             /* Convert back to JSON */
-            $jsonData = json_encode($tempArray);
+            $jsonData = json_encode($tempArray, JSON_PRETTY_PRINT);
             /* Select and Put into JSON target file */
             file_put_contents(__DIR__ . "/bookings.json", $jsonData);
 
-            /* Print encoded array as JSON . REMOVE */
-            // print($jsonData);
-
+            /* Print if all good */
             $msgs[] = "Payment approved, your reservation has been received. Welcome to " . $hotelName . "!";
             /* Clear $errors if booking was successful and payment approved */
             unset($errors);
@@ -194,6 +193,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             // print_r($_SESSION);
             /* print_r($bookingToJson); */
             echo "</pre>";
+            header("Location: receipt.php");
         } else {
             $errors[] = "Selected room is not available on given date. Please try again.";
             // print_r($errors);
