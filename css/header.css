@@ -3,7 +3,7 @@
 header {
   width: 100%;
   height: 20vh;
-  background-image: url(/img/yrgopelago-header.jpg);
+  background-image: url(../img/yrgopelago-header.jpg);
   background-position: center;
   background-size: cover;
   padding: 2rem;

@@ -30,10 +30,6 @@ function validateTransferCode(string $transferCode, int $totalCost)
 
     if ($response->hasHeader('Content-Length')) {
         $transfer_code = json_decode($response->getBody()->getContents());
-        // echo "<pre>";
-        // print_r(json_encode($transfer_code));
-        // print_r($transfer_code);
-        // echo "</pre>";
 
         if (isset($transfer_code->transferCode)) {
             /* Valid Transfer Code */
@@ -44,3 +40,19 @@ function validateTransferCode(string $transferCode, int $totalCost)
         }
     }
 }
+
+// function depositTransferCode(string $name, string $transferCode)
+// {
+//     $client = new Client();
+
+//     $response = $client->request(
+//         'POST',
+//         'https://www.yrgopelago.se/centralbank/deposit',
+//         [
+//             'form_params' => [
+//                 'user' => $name,
+//                 'transferCode' => $transferCode
+//             ]
+//         ]
+//     );
+// };

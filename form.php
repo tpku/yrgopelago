@@ -199,6 +199,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
             // print_r($errors);
         };
     } else {
-        $errors[] = "Invalid information given. Please try again.";
+        // $errors[] = "Invalid information given. Please try again.";
+        // REMOVE
     };
 };
