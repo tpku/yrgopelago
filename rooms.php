@@ -43,12 +43,23 @@ require __DIR__ . "/views/header.php";
                 </div>
                 <h2 class="room-name">Heaven of Hans</h2>
                 <p class="room-info">$7 per/night</p>
-                <p class="room-info">Our finest suite. Not called Heaven for no reason. Hans's home deserves a suite in is honor. Heaven in comparison to the movie Frozen</p>
+                <p class="room-info">Our finest suite. Not called Heaven for no reason. Hans's home deserves a suite in it's honor. Heaven in comparison to the movie Frozen</p>
                 <a class="room-booking" href="#room-3">
                     <h2>Make a reservation</h2>
                 </a>
             </article>
         </div>
+        <!-- | Print Messages | -->
+        <p>
+            <?php if (isset($errors)) : ?>
+                <?php foreach ($errors as $error) : ?>
+                    <?= $error; ?>
+                <?php endforeach; ?>
+            <?php endif ?>
+            <?php foreach ($msgs as $msg) : ?>
+                <?= $msg; ?>
+            <?php endforeach; ?>
+        </p>
     </section>
 
     <section id="room-1">
@@ -86,17 +97,8 @@ require __DIR__ . "/views/header.php";
 
             <input class="submit" type="submit" value="Send data">
         </form>
-        <p>
-            <?php if (isset($errors)) : ?>
-                <?php foreach ($errors as $error) : ?>
-                    <?= $error; ?>
-                <?php endforeach; ?>
-            <?php endif ?>
-            <?php foreach ($msgs as $msg) : ?>
-                <?= $msg; ?>
-            <?php endforeach; ?>
-        </p>
     </section>
+
     <section id="room-2">
         <h1>Southern Standard</h1>
         <section class="calendar-wrapper">
@@ -132,17 +134,8 @@ require __DIR__ . "/views/header.php";
 
             <input class="submit" type="submit" value="Send data">
         </form>
-        <p>
-            <?php if (isset($errors)) : ?>
-                <?php foreach ($errors as $error) : ?>
-                    <?= $error; ?>
-                <?php endforeach; ?>
-            <?php endif ?>
-            <?php foreach ($msgs as $msg) : ?>
-                <?= $msg; ?>
-            <?php endforeach; ?>
-        </p>
     </section>
+
     <section id="room-3">
         <h1>Heaven of Hans</h1>
         <section class="calendar-wrapper">
@@ -176,18 +169,8 @@ require __DIR__ . "/views/header.php";
                 </div>
             </div>
 
-            <input class="submit" type="submit" value="Send data">
+            <input id="submitButton" class="submit" type="submit" value="Send data">
         </form>
-        <p>
-            <?php if (isset($errors)) : ?>
-                <?php foreach ($errors as $error) : ?>
-                    <?= $error; ?>
-                <?php endforeach; ?>
-            <?php endif ?>
-            <?php foreach ($msgs as $msg) : ?>
-                <?= $msg; ?>
-            <?php endforeach; ?>
-        </p>
     </section>
 </main>
 <?php require __DIR__ . "/views/footer.php"; ?>
