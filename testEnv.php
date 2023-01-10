@@ -13,3 +13,4 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 echo $_ENV['API_KEY'];
+echo $_ENV['USER_NAME'];

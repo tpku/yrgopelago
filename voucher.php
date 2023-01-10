@@ -8,7 +8,6 @@ require_once __DIR__ . "/hotelFunctions.php";
 /* Temporary test data. TransferCode is valid if totalCost is <= 20. Not valid if > 20 */
 // $transferCode = "fa06e0b0-1751-43de-9b18-25c10df72e30";
 // $totalCost = 11;
-// print_r(isValidUuid($transferCode));
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -40,19 +39,3 @@ function validateTransferCode(string $transferCode, int $totalCost)
         }
     }
 }
-
-// function depositTransferCode(string $name, string $transferCode)
-// {
-//     $client = new Client();
-
-//     $response = $client->request(
-//         'POST',
-//         'https://www.yrgopelago.se/centralbank/deposit',
-//         [
-//             'form_params' => [
-//                 'user' => $name,
-//                 'transferCode' => $transferCode
-//             ]
-//         ]
-//     );
-// };

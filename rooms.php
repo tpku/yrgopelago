@@ -16,7 +16,7 @@ require __DIR__ . "/views/header.php";
                     <img class="room-img" src="https://images.unsplash.com/photo-1619207265576-787cc49b2784?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" alt="">
                 </div>
                 <h2 class="room-name">Economy</h2>
-                <p class="room-info">$2 per/night</p>
+                <p class="room-info">$2 / Night</p>
                 <p class="room-info">Our most affordable room. Also our smallest room available. However, when you have the great views of Southern Isles just outside the door you won't need more than a simple bed.</p>
                 <a class="room-booking" href="#room-1">
                     <h2>Make a reservation</h2>
@@ -29,8 +29,8 @@ require __DIR__ . "/views/header.php";
                     <img class="room-img" src="https://images.unsplash.com/photo-1601026375090-b77cb4c80fd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="">
                 </div>
                 <h2 class="room-name">Southern Standard</h2>
-                <p class="room-info">$3 per/night</p>
-                <p class="room-info">Comfort with a budget. This is our standard room. Inspired by the locals whom have strolled the plains of the Southern for decades.</p>
+                <p class="room-info">$3 / Night</p>
+                <p class="room-info">Comfort with a budget. This is our standard room. Inspired by the locals who have strolled the plains of the Southern for decades.</p>
                 <a class="room-booking" href="#room-2">
                     <h2>Make a reservation</h2>
                 </a>
@@ -42,8 +42,8 @@ require __DIR__ . "/views/header.php";
                     <img class="room-img" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" alt="">
                 </div>
                 <h2 class="room-name">Heaven of Hans</h2>
-                <p class="room-info">$7 per/night</p>
-                <p class="room-info">Our finest suite. Not called Heaven for no reason. Hans's home deserves a suite in it's honor. Heaven in comparison to the movie Frozen</p>
+                <p class="room-info">$7 / Night</p>
+                <p class="room-info">Our finest suite. Not called Heaven for no reason. Hans's home deserves a suite in its honor. A heavenly experience in comparison to the origins of Hans’s home from the movie “Frozen”</p>
                 <a class="room-booking" href="#room-3">
                     <h2>Make a reservation</h2>
                 </a>
@@ -71,7 +71,7 @@ require __DIR__ . "/views/header.php";
         </section>
         <form action="rooms.php" method="post">
             <input type="text" name="name" placeholder="Name" required>
-            <input type="" name="voucher" placeholder="Voucher" required>
+            <input type="" name="voucher" placeholder="Api-key" required>
             <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31" required>
             <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31" required>
             <select name="room_id" id="rooms">
@@ -108,7 +108,7 @@ require __DIR__ . "/views/header.php";
         </section>
         <form action="rooms.php" method="post">
             <input type="text" name="name" placeholder="Name" required>
-            <input type="" name="voucher" placeholder="Voucher" required>
+            <input type="" name="voucher" placeholder="Api-key" required>
             <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31" required>
             <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31" required>
             <select name="room_id" id="rooms">
@@ -145,7 +145,7 @@ require __DIR__ . "/views/header.php";
         </section>
         <form action="rooms.php" method="post">
             <input type="text" name="name" placeholder="Name" required>
-            <input type="" name="voucher" placeholder="Voucher" required>
+            <input type="" name="voucher" placeholder="Api-key" required>
             <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31" required>
             <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31" required>
             <select name="room_id" id="rooms">

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/rooms.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/start.css">
 </head>
 
 <body>

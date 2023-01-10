@@ -59,3 +59,14 @@ function checkRoomPage($script, $id)
         echo $room;
     }
 };
+
+
+function fetchRoomNameCost($database): array
+{
+    $stmt = connect($database)->query("SELECT name, price FROM rooms;");
+
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
