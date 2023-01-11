@@ -15,7 +15,7 @@ If your project requires some installation or similar, please inform your user '
 # Code review
 
 1. Consider the number of files. It is often good to split up code in several files to make it more readable, but if a large number of files are not put in a proper folder structure they can be quite hard to follow. Are everything in use, or are som testing files still there?
-2. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
+2. The index.php has got "print_r(fetchRoomNameCost($database)[1]["price"])" right at he top. This is probably just for testing, so there is no need to keep it in the finished code.
 3. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 4. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 5. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
