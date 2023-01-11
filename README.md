@@ -30,3 +30,4 @@ If your project requires some installation or similar, please inform your user '
 14. style.css:1-4 - the "main"-tag is found here, as well is in the small main.css-file. Maybe move the "main"-tag from main.css here, and move the "body"-tag from main.css to global.css? The you can remove main.css altogether.
 15. style.css:28-38 - Can't these rows go together just under table.calendar? Just to try to keep the code a bit dry?
 16. style.css:108-110 - Be removed?
+17. script.js:10-13 - This is probably left after testing. Be removed?
