@@ -20,7 +20,7 @@ If your project requires some installation or similar, please inform your user '
 4. Not a code issue, but there seems to be missing a lot of "alt"-text by images.
 5. Features.php: The image path for sauna.jpg is not working on the deployed site. Also, ocurring javascript errors. I'll examine that further down.
 6. rooms.php:80, 122, 164 - <div class="radio-wrapper">, (eller "Features). Inte så mycket kod i "Features"-blockt kanske, men ändå såpass att det kanske kunde ersatts av en funktion, eller helt enkelt bara finnas med en gång? Om inte annat för att göra koden lite mer överskådlig.
-7. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
+7. calendar.php:51-slutet - Massa utkommenterad kod. Ska den vara kvar? 
 8. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 9. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 10. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
