@@ -23,4 +23,6 @@ If your project requires some installation or similar, please inform your user '
 7. calendar.php:51-end - A wall of out-commented code. Is it left behind on purpose? 
 8. calendar.php:17 - Shouldn´t there be a "$calendar1->asMonthView();" below line 17?
 9. form.php:50,54 - Un-commented PHP-"echo". Probably from testing. They should be removed when code is finished.
-10. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
+10. form.php:32-46 - Your HTML-forms that sends these data chunks have got the property "required", so they are not supposed to be able to send empty data. So, for the forms the error check is probably a bit unnecessary, but perhaps this is supposed to be used by the API instead?. 
+11. form.php:74-84 - These if-statements are very similar. The line 84 could probably be moved to just below row 77, and the if-statement it belonged could be removed altogether.    
+
