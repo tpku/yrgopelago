@@ -63,7 +63,7 @@ function checkRoomPage($script, $id)
 
 function fetchRoomNameCost($database): array
 {
-    $stmt = connect($database)->query("SELECT name, price FROM rooms;");
+    $stmt = connect($database)->query("SELECT * FROM rooms;");
 
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

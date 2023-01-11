@@ -72,13 +72,17 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
     }
 
     /* Fetch feature price and add price to array */
-    foreach ($featureSelected as $feature) {
-        $featurePrices[] = getFeaturePrice($database, $feature);
+    if (isset($featureSelected)) {
+        foreach ($featureSelected as $feature) {
+            $featurePrices[] = getFeaturePrice($database, $feature);
+        }
     }
 
-    /* Fetch feature name and add name to array */
-    foreach ($featureSelected as $feature) {
-        $featureNames[] = getFeatureName($database, $feature);
+    /* Fetch feature name and price and add name to array */
+    if (isset($featureSelected)) {
+        foreach ($featureSelected as $feature) {
+            $featureToReceipt[] = getFeatureDetails($database, $feature);
+        }
     }
 
     /* Calculate total cost for features */
@@ -201,7 +205,7 @@ if (isset($_POST["name"], $_POST["voucher"], $_POST["arrival"], $_POST["departur
                 "total_cost" => $totalCost,
                 "stars" => $hotelStars,
                 "features" => [
-                    $featureNames,
+                    $featureToReceipt,
                 ],
                 "additional_info" => "Thank you . $name .  for choosing " . $hotelName . ".",
             ];

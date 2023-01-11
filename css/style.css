@@ -1,32 +1,59 @@
 main {
   margin: 0 auto;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 .calendar-wrapper {
-  margin-top: 1rem;
+  padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .calendar-container {
-  width: 30%;
+  width: 100%;
+  height: 300px;
+}
+
+thead tr.calendar-title {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+thead tr.calendar-header th {
+  color: #7c7c7c;
 }
 
 table.calendar {
   width: 100%;
+  height: 100%;
 }
 
 table.calendar.eco,
 table.calendar.std,
 table.calendar.lux {
-  background-color: #979393;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+td.cal-day:not(.mask, .mask-start) {
+  background-color: #ffe2d7;
+}
+
+td.cal-day.today {
+  background-color: #c0e4e4;
+}
+
+td.cal-day.today.mask,
+td.cal-day.today.mask-start {
+  background-color: orangered;
 }
 
 div.cal-day-box {
   text-align: center;
+  font-weight: bold;
+  color: #050012;
 }
 
 form {
@@ -34,35 +61,82 @@ form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 200px;
   gap: 1rem;
+  position: relative;
 }
 
-/* .calendar tbody tr td.mask-start,
-.calendar tbody tr td.mask,
-.calendar tbody tr td.mask-end {
-  background: #92746f;
-} */
+input {
+  border: none;
+  height: 32px;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 68, 0, 0.676);
+}
+
+input::placeholder {
+  font-size: 14px;
+}
+
+input.submit {
+  font-size: 18px;
+  color: #ffe2d7;
+  height: 40px;
+  filter: drop-shadow(0 0.1rem 0.45rem #0e0e0e32);
+  background: orangered;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+input.submit:hover {
+  color: #fffbf9;
+  filter: drop-shadow(0 0.1rem 0.45rem #0e0e0e6f);
+  cursor: pointer;
+  transition: scale 0.15s ease-in;
+}
 
 .mask-start,
 .mask {
   color: rgb(39, 39, 39);
-  background-color: #ed4141;
+  background-color: orangered;
 }
 
-.cal-event-box {
-  color: black;
-  background-color: red;
-  display: none;
-}
+/* .radio-wrapper {
+  margin-top: 10px;
+} */
 
 .radio-selection {
+  margin-top: 8px;
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
 
-.test-div {
+.radio-selection label,
+.radio-selection input {
+  height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+section.receipt-section {
+  padding: 0 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.receipt {
+  border-radius: 5px;
+  position: relative;
   background-color: #cfcfcf;
   font-size: 16px;
   padding: 1rem;
+  filter: drop-shadow(0 0.1rem 0.45rem #0e0e0e21);
 }

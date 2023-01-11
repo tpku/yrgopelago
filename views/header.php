@@ -19,10 +19,13 @@
         <nav>
             <div class="info">
                 <?php foreach (hotelInfo($database) as $hotel) : ?>
-                    <a href="index.php"><?= $hotel["island"]; ?></a>
-                    <p><?= $hotel["name"]; ?></p>
-                    <p><?= $hotel["stars"]; ?></p>
-                <?php endforeach; ?>
+                    <p><a href="index.php"><?= $hotel["name"] . " "; ?>
+                            <?php for ($i = 0; $i < $hotel["stars"]; $i++) {
+                                echo "☆ ";
+                            } ?></a></p>
+                    <p><?= "Enjoy the great wonders of " . $hotel["island"]; ?>
+
+                    <?php endforeach; ?>
             </div>
             <ul>
                 <li><a href="index.php">START</a></li>
@@ -31,3 +34,6 @@
             </ul>
         </nav>
     </header>
+    <div class="bg">
+        <img src="img/bgtest.jpg" alt="">
+    </div>

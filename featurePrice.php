@@ -16,15 +16,33 @@ function getFeaturePrice($database, string $featureId = null)
     return $price;
 }
 
-function getFeatureName($database, string $featureId = null)
+// function getFeatureName($database, string $featureId = null)
+// {
+//     $stmt = connect($database)->query(
+//         "SELECT name FROM features WHERE id = :feature_id;"
+//     );
+
+//     $stmt->bindParam(':feature_id', $featureId, PDO::PARAM_INT);
+//     $stmt->execute();
+//     $featureName = $stmt->fetch(PDO::FETCH_ASSOC);
+//     $name = $featureName["name"];
+//     return $name;
+// }
+
+function getFeatureDetails($database, string $featureId = null): array
 {
     $stmt = connect($database)->query(
-        "SELECT name FROM features WHERE id = :feature_id;"
+        "SELECT name, price FROM features WHERE id = :feature_id;"
     );
 
     $stmt->bindParam(':feature_id', $featureId, PDO::PARAM_INT);
     $stmt->execute();
-    $featureName = $stmt->fetch(PDO::FETCH_ASSOC);
-    $name = $featureName["name"];
-    return $name;
+    $feature = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $name = $feature[0]["name"];
+    $price = $feature[0]["price"];
+    $array = [
+        $name => $price,
+    ];
+
+    return $array;
 }

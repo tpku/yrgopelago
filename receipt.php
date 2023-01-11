@@ -13,11 +13,15 @@ $successfulBooking = json_encode(end($tempArray), JSON_PRETTY_PRINT);
 ?>
 
 <main>
-    <h1>Thank you for your booking</h1>
-    <div class="test-div">
-        <p class="booking-response">
-            <?= "<pre>" . $successfulBooking . "<pre>"; ?>
-        </p>
-    </div>
+    <section class="receipt-section">
+        <h1>Thank you for your booking!</h1>
+        <div class="receipt">
+            <p>Save receipt for later:</p>
+            <br>
+            <p class="booking-response">
+                <?= "<pre>" . $successfulBooking; ?>
+            </p>
+        </div>
+    </section>
 </main>
 <?php require __DIR__ . "/views/footer.php"; ?>

@@ -10,12 +10,15 @@ use benhall14\phpCalendar\Calendar as Calendar;
 
 $calendar1 = new Calendar();
 $calendar1->useMondayStartingDate();
+
+$calendar1->asMonthView();
 /* Declare Calendar 2 (Southern Standard) */
 $calendar2 = new Calendar();
 $calendar2->useMondayStartingDate();
 /* Declare Calendar 3 (Heaven of Hans) */
 $calendar3 = new Calendar();
 $calendar3->useMondayStartingDate();
+$calendar3->asMonthView();
 
 
 $calendars = [

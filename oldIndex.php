@@ -18,14 +18,14 @@ require __DIR__ . "/views/header.php";
             <h2>Economy</h2>
             <?= $calendar1->draw(date("2023-01-01"), "eco"); ?>
         </div>
-        <div class="calendar-container">
+        <!-- <div class="calendar-container">
             <h2>Southern Standard</h2>
             <?= $calendar2->draw(date("2023-01-01"), "std"); ?>
         </div>
         <div class="calendar-container">
             <h2>Heaven of Hans</h2>
             <?= $calendar3->draw(date("2023-01-01"), "lux"); ?>
-        </div>
+        </div> -->
     </section>
 
     <form action="index.php" method="post">
