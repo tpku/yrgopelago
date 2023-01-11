@@ -18,7 +18,7 @@ If your project requires some installation or similar, please inform your user '
 2. Index.php: The index.php has got "print_r(fetchRoomNameCost($database)[1]["price"])" right at he top. This is probably just for testing, so there is no need to keep it in the finished code.
 3. Index.php: There is "include __DIR__ . "/hotelFunctions.php";" and "include __DIR__ . "/form.php";" at the top of index.php. They should probably be exchanged by "Require" when the finished webpage is deployed, since we don't want the code to proceed if something goes wrong with that piece of critical code on a finished webpage.
 4. Not a code issue, but there seems to be missing a lot of "alt"-text by images.
-5. Features.php: The image path for sauna.jpg is not working on the deployed site. Also, a lot of javascript errors. I'll cover that further down.
+5. Features.php: The image path for sauna.jpg is not working on the deployed site. Also, ocurring javascript errors. I'll examine that further down.
 6. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 7. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 8. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
