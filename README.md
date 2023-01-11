@@ -22,5 +22,5 @@ If your project requires some installation or similar, please inform your user '
 6. rooms.php:80, 122, 164 - <div class="radio-wrapper">, (or "Features). Not that much code in the  "Features"-block maybe, but maybe enough to be replaced by a function, or perhaps just be used as code once? If not for other things, it could make the code a bit easier to grasp.
 7. calendar.php:51-end - A wall of out-commented code. Is it left behind on purpose? 
 8. calendar.php:17 - Shouldn´t there be a "$calendar1->asMonthView();" below line 17?
-9. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
+9. form.php:50,54 - Un-commented PHP-"echo". Probably from testing. They should be removed when code is finished.
 10. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
