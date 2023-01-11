@@ -19,8 +19,8 @@ If your project requires some installation or similar, please inform your user '
 3. Index.php: There is "include __DIR__ . "/hotelFunctions.php";" and "include __DIR__ . "/form.php";" at the top of index.php. They should probably be exchanged by "Require" when the finished webpage is deployed, since we don't want the code to proceed if something goes wrong with that piece of critical code on a finished webpage.
 4. Not a code issue, but there seems to be missing a lot of "alt"-text by images.
 5. Features.php: The image path for sauna.jpg is not working on the deployed site. Also, ocurring javascript errors. I'll examine that further down.
-6. rooms.php:80, 122, 164 - <div class="radio-wrapper">, (eller "Features). Inte så mycket kod i "Features"-blockt kanske, men ändå såpass att det kanske kunde ersatts av en funktion, eller helt enkelt bara finnas med en gång? Om inte annat för att göra koden lite mer överskådlig.
-7. calendar.php:51-slutet - Massa utkommenterad kod. Ska den vara kvar? 
-8. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
+6. rooms.php:80, 122, 164 - <div class="radio-wrapper">, (or "Features). Not that much code in the  "Features"-block maybe, but maybe enough to be replaced by a function, or perhaps just be used as code once? If not for other things, it could make the code a bit easier to grasp.
+7. calendar.php:51-end - A wall of out-commented code. Is it left behind on purpose? 
+8. calendar.php:17 - Shouldn´t there be a "$calendar1->asMonthView();" below line 17?
 9. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 10. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
