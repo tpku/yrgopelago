@@ -80,15 +80,15 @@ require __DIR__ . "/views/header.php";
                 <div class="radio-wrapper">
                     <h3>Features</h3>
                     <div class="radio-selection">
-                        <label for="dewey">Arctic Sauna</label>
+                        <label for="dewey">Arctic Sauna $2</label>
                         <input type="checkbox" id="sauna" name="feature-1" value="1">
                     </div>
                     <div class="radio-selection">
-                        <label for="dewey">Kettlebell Workout</label>
+                        <label for="dewey">Kettlebell Workout $3</label>
                         <input type="checkbox" id="workout" name="feature-2" value="2">
                     </div>
                     <div class="radio-selection">
-                        <label for="dewey">Beer Tasting w. Manager</label>
+                        <label for="dewey">Beer Tasting w. Manager $5</label>
                         <input type="checkbox" id="beer" name="feature-3" value="3">
                     </div>
                 </div>
@@ -122,15 +122,15 @@ require __DIR__ . "/views/header.php";
                 <div class="radio-wrapper">
                     <h3>Features</h3>
                     <div class="radio-selection">
-                        <label for="dewey">Arctic Sauna</label>
+                        <label for="dewey">Arctic Sauna $2</label>
                         <input type="checkbox" id="sauna" name="feature-1" value="1">
                     </div>
                     <div class="radio-selection">
-                        <label for="dewey">Kettlebell Workout</label>
+                        <label for="dewey">Kettlebell Workout $3</label>
                         <input type="checkbox" id="workout" name="feature-2" value="2">
                     </div>
                     <div class="radio-selection">
-                        <label for="dewey">Beer Tasting w. Manager</label>
+                        <label for="dewey">Beer Tasting w. Manager $5</label>
                         <input type="checkbox" id="beer" name="feature-3" value="3">
                     </div>
                 </div>
@@ -164,15 +164,15 @@ require __DIR__ . "/views/header.php";
                 <div class="radio-wrapper">
                     <h3>Features</h3>
                     <div class="radio-selection">
-                        <label for="dewey">Arctic Sauna</label>
+                        <label for="dewey">Arctic Sauna $2</label>
                         <input type="checkbox" id="sauna" name="feature-1" value="1">
                     </div>
                     <div class="radio-selection">
-                        <label for="dewey">Kettlebell Workout</label>
+                        <label for="dewey">Kettlebell Workout $3</label>
                         <input type="checkbox" id="workout" name="feature-2" value="2">
                     </div>
                     <div class="radio-selection">
-                        <label for="dewey">Beer Tasting w. Manager</label>
+                        <label for="dewey">Beer Tasting w. Manager $5</label>
                         <input type="checkbox" id="beer" name="feature-3" value="3">
                     </div>
                 </div>
