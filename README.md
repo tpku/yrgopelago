@@ -31,3 +31,4 @@ If your project requires some installation or similar, please inform your user '
 15. style.css:28-38 - Can't these rows go together just under table.calendar? Just to try to keep the code a bit dry?
 16. style.css:108-110 - Be removed?
 17. script.js:10-13 - This is probably left after testing. Be removed?
+18. script.js:15-varies - Some errors in the web reader here. The variables created on rows 1-8 can't be dynamically created on index.php, since the html needed just exists when rooms.php is active. You could add an eventlisterner to the window (or similar) that creates the variables when rooms.php activates, and then destroys them when rooms.php is deactivated (another page activates).
