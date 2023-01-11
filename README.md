@@ -26,4 +26,4 @@ If your project requires some installation or similar, please inform your user '
 10. form.php:32-46 - Your HTML-forms that sends these data chunks have got the property "required", so they are not supposed to be able to send empty data. So, for the forms the error check is probably a bit unnecessary, but perhaps this is supposed to be used by the API instead?. 
 11. form.php:74-84 - These if-statements are very similar. The line 84 could probably be moved to just below row 77, and the if-statement it belonged to could be removed altogether.
 12. header.css:7-9 - This un-commented text should probably be removed.
-
+13. rooms.css:112-114 - I didn't see this in the HTML-file before. You already have a "h1" above these three, the h1.headingcard. Avoid using multiple h1:s on a webpage.
