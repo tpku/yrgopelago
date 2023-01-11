@@ -27,3 +27,5 @@ If your project requires some installation or similar, please inform your user '
 11. form.php:74-84 - These if-statements are very similar. The line 84 could probably be moved to just below row 77, and the if-statement it belonged to could be removed altogether.
 12. header.css:7-9 - This un-commented text should probably be removed.
 13. rooms.css:112-114 (and in rooms.php) - I didn't see this in the HTML-file before. You already have a "h1" above these three, the h1.headingcard. Avoid using multiple h1:s on a webpage.
+14. style.css:1-4 - the "main"-tag is found here, as well is in the small main.css-file. Maybe move the "main"-tag from main.css here, and move the "body"-tag from main.css to global.css? The you can remove main.css altogether.
+15. style.css:28-38 - Can't these rows go together just under table.calendar? Just to try to keep the code a bit dry?
