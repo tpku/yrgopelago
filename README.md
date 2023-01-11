@@ -6,7 +6,7 @@ Welcome to the lovely home island of Hans. The arctic isle located far far north
 
 # Hans´s Haven
 
-Why not add some info about the hotel of your dreams?
+A great hotel located on Southern Isles in the majestic Yrgopelago. A hotel built on the saga told about Hans from the movie "Frozen".
 
 # Instructions
 
