@@ -39,3 +39,5 @@ If your project requires some installation or similar, please inform your user '
     But at the same time, and I can't put my finger exactly at what it is, it feels like the code overall could be simplified a bit. Maybe more of of all database-connections themselves could be put into functions (functions in functions, so to say), or maybe more of the processes of comparing data could be shortened or simplified? I can't give a good, precise anwer myself, unfortunately.
     
     But apart from that, great f***ing work! It was a blast spending these hours reading your code. :)
+    
+    //Magnus V.
