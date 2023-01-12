@@ -37,7 +37,7 @@ section.start article.top .content-container {
   gap: 10px;
 }
 
-.left h2 {
+.left a {
   margin-top: 80px;
   font-size: 32px;
   color: #eaeaea;
@@ -48,6 +48,11 @@ section.start article.top .content-container {
   background-color: orangered;
   border-radius: 3px;
   height: 100px;
+}
+
+.left a:hover,
+.left a:visited {
+  color: #eaeaea;
 }
 
 .left p {

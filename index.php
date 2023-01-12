@@ -16,7 +16,9 @@ print_r(fetchRoomNameCost($database)[1]["price"]);
                 <div class="left">
                     <p>A great place to enjoy the great wonders of Southern Isles.</p>
                     <p>Situated under the northern lights in the winter, and the midnight sun during the summer months, Han's Haven is a unique hotel and spa experience that welcomes guests to immerse themselves in the elements while leaving a minimal environmental footprint behind with a twist for the hardcore Frozen fan. Enjoy the great nature surrounding the hotel, grab a bite of food in our restaurant with or kickstart your body and mind at our exclusive box with world class instructors.</p>
-                    <h2>Deal of the month!</h2>
+
+                    <h2><a href="rooms.php">Deal of the month!</a></h2>
+
                     <p>Right now! Make a reservation for $35 or more and save $5!</p>
                 </div>
                 <div class="right">
