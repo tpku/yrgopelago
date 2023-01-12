@@ -33,3 +33,7 @@ If your project requires some installation or similar, please inform your user '
 17. script.js:10-13 - This is probably left after testing. Be removed?
 18. script.js:15 - (index.php) Some errors in the web reader here. The variables created on rows 1-8 can't be dynamically created on index.php, since the html needed just exists when rooms.php is active. You could add an eventlisterner to the window (or similar) that creates the variables when rooms.php activates, and then destroys them when rooms.php is deactivated (another page activates). Also, "const rooms" appears to be unused, and should probably be removed.
 19. script.js:16, 21, 26 - (features.php) Similar problem here. #room-1, #room-2 and #room-3 are called upon to have classes added/removed, but the HTML doesn't exist on features.php.
+    
+    All in all, your code is BEAUTIFUL, and I had to really nit-pick to find things that didn't appear near to 100%. The work with the API-code is amazing, and I really wish I could do things like that. :)
+    But at the same time, and I can't put my finger exactly at what it is, it feels like the code overall could be simplified a bit. Maybe more of of all database-connecions themselves could be put into functions (functions in functions, so to say), or maybe more of the processes of comparing data could be shortened or simplified? I can't give a good, precise anwer myself, unfortunately.
+    But apart from that, great f***ing work!
