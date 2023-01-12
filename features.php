@@ -39,17 +39,5 @@ require __DIR__ . "/views/header.php";
         </div>
         </p>
     </section>
-    <section class="features">
-        <h1>FEATURES</h1>
-        <div class="features article-wrapper">
-            <article>
-                <img class="room-img" src="/img/sauna.jpg" alt="">
-                <div class="text-container">
-                    <h2>Arctic Sauna</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam totam officia sunt velit ipsum asperiores neque aspernatur hic autem laudantium natus officiis ut dolore itaque suscipit eius nobis, accusamus at.</p>
-                </div>
-            </article>
-        </div>
-    </section>
 </main>
 <?php require __DIR__ . "/views/footer.php"; ?>
