@@ -31,6 +31,7 @@
                 <li><a href="index.php">START</a></li>
                 <li><a href="rooms.php">ROOMS</a></li>
                 <li><a href="features.php">FEATURES</a></li>
+                <li><a href="room.php">ROOM INFO</a></li>
             </ul>
         </nav>
     </header>
