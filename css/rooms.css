@@ -2,7 +2,8 @@ section {
   max-width: 1000px;
 }
 
-.rooms {
+.rooms,
+.room-info-container {
   padding: 0 20px;
   width: 100%;
   height: 100vh;
@@ -11,6 +12,25 @@ section {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.room-info-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.room-info-card {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.info-calendar {
+  display: flex;
+  width: 460px;
+  flex-direction: column;
 }
 
 #rooms {
