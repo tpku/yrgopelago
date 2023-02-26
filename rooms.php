@@ -74,8 +74,6 @@ require __DIR__ . "/views/header.php";
                 <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31" required>
                 <select name="room_id" id="rooms">
                     <option value="1">Economy</option>
-                    <!-- <option value="2">Southern Standard</option>
-                <option value="3">Heaven of Hans</option> -->
                 </select>
                 <div class="radio-wrapper">
                     <h3>Features</h3>
@@ -115,9 +113,7 @@ require __DIR__ . "/views/header.php";
                 <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31" required>
                 <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31" required>
                 <select name="room_id" id="rooms">
-                    <!-- <option value="1">Economy</option> -->
                     <option value="2">Southern Standard</option>
-                    <!-- <option value="3">Heaven of Hans</option> -->
                 </select>
                 <div class="radio-wrapper">
                     <h3>Features</h3>
@@ -157,8 +153,6 @@ require __DIR__ . "/views/header.php";
                 <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31" required>
                 <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31" required>
                 <select name="room_id" id="rooms">
-                    <!-- <option value="1">Economy</option>
-            <option value="2">Southern Standard</option> -->
                     <option value="3">Heaven of Hans</option>
                 </select>
                 <div class="radio-wrapper">
