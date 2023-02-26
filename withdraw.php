@@ -5,11 +5,6 @@ declare(strict_types=1);
 require_once __DIR__ . "/vendor/autoload.php";
 require_once __DIR__ . "/hotelFunctions.php";
 
-/* Dummy data for testing */
-// $apiKey = "ab14cbb2-f550-46e6-97c2-bb7f0126733e";
-// $inputUser = "Rune";
-// $totalCost = 10;
-
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
